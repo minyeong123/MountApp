@@ -31,7 +31,7 @@ import SearchBar from "../layouts/SearchBar";
         </motion.header>
 
         <motion.div variants={fadeIn}>
-          <SearchBar />
+        <SearchBar />
         </motion.div>
 
         <motion.div variants={fadeIn} className="flex items-center space-x-2 py-1 border-b-2 border-gray-400">

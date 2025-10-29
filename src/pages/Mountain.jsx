@@ -15,14 +15,14 @@ export default function Mountain() {
     );
   }
   return (
-    <motion.section className="p-4 space-y-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-      <motion.header className="flex flex-col items-center py-4">
+    <motion.section className="p-4 space-y-3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+      <motion.header className="flex flex-col items-center py-2">
         <h2 className="text-2xl font-bold">산악 정보</h2>
       </motion.header>
 
       <SearchBar />
 
-      <motion.div className="space-y-3">
+      <motion.div className="space-y-3 ">
         <h2 className="text-2xl font-bold">{mountain.name}</h2>
         <img src={mountain.image} alt={mountain.name} className="w-full h-60 object-cover rounded-lg shadow"/>
         <p className="text-gray-700 leading-relaxed">{mountain.description}</p>
