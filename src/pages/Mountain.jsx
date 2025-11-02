@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import SearchBar from "../layouts/SearchBar";
+import BackButton from "../layouts/BackButton";
 import { guides } from "./guidesData";
 
 export default function Mountain() {
@@ -16,7 +17,8 @@ export default function Mountain() {
   }
   return (
     <motion.section className="p-4 space-y-3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-      <motion.header className="flex flex-col items-center py-2">
+      <motion.header className="relative flex items-center justify-center py-2">
+        <BackButton />
         <h2 className="text-2xl font-bold">산악 정보</h2>
       </motion.header>
 
