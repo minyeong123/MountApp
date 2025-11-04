@@ -5,7 +5,7 @@
   import Map from "./pages/Map";
   import Community from "./pages/Community";
   import MyPage from "./pages/MyPage";
-  import PostDetail from "./pages/PostDetail";
+  import DetailPage from "./pages/DetailPage";
 
   function App() {
     return (
@@ -15,7 +15,8 @@
           <Route path="/mountain/:name" element={<Mountain />} />
           <Route path="/map" element={<Map />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/community/post/:postId" element={<PostDetail />} />
+          <Route path="/community/post/:id" element={<DetailPage dataType="post" />} />
+          <Route path="/community/review/:id" element={<DetailPage dataType="review" />} />
           <Route path="/mypage" element={<MyPage />} />
         </Route>
       </Routes>
