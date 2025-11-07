@@ -4,6 +4,16 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: "dist", // 빌드 결과 폴더
+    outDir: "dist",
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://www.safetydata.go.kr",
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api/, ""), 
+      },
+    },
   },
 });
