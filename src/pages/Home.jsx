@@ -22,17 +22,27 @@ export default function Home() {
   ];
 
   const [wildfires, setWildfires] = useState([]);
-  const [loadingWF, setLoadingWF] = useState(true);
+  const [landslides, setLandslides] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 임시 데이터
+    // 임시 산불 데이터
     const tempWildfires = [
       { SN: 1, PLC_NM: "북한산", MSTN_DT: "2025-11-07 14:00" },
       { SN: 2, PLC_NM: "설악산", MSTN_DT: "2025-11-07 13:30" },
       { SN: 3, PLC_NM: "한라산", MSTN_DT: "2025-11-07 12:50" },
     ];
+
+    // 임시 산사태 데이터
+    const tempLandslides = [
+      { SN: 1, SGG_NM: "강원도 강릉시", PREDC_ANLS_DT: "2025-11-07 14:10" },
+      { SN: 2, SGG_NM: "경기도 양평군", PREDC_ANLS_DT: "2025-11-07 13:45" },
+      { SN: 3, SGG_NM: "제주특별자치도 제주시", PREDC_ANLS_DT: "2025-11-07 12:55" },
+    ];
+
     setWildfires(tempWildfires);
-    setLoadingWF(false);
+    setLandslides(tempLandslides);
+    setLoading(false);
   }, []);
 
   return (
@@ -46,39 +56,7 @@ export default function Home() {
         <SearchBar />
       </motion.div>
 
-      <motion.div variants={fadeIn} className="flex items-center space-x-2 py-1 border-b-2 border-gray-400">
-        <Megaphone className="w-6 h-6" aria-hidden="true" />
-        <h2 className="text-xl font-bold">실시간 재난정보</h2>
-      </motion.div>
-
-      <motion.section variants={fadeIn} className="flex flex-col space-y-3 bg-gray-200 p-3 rounded-lg">
-        <motion.div className="text-xl font-bold text-gray-600"> 산사태 정보 </motion.div>
-        <div className="border-t border-gray-300"></div>
-        <div className="bg-white rounded-lg p-3 shadow-sm min-h-[100px] flex items-center justify-center text-gray-400">
-          <p>API 데이터</p>
-        </div>
-
-        <motion.div className="text-xl font-bold text-gray-600"> 산불 정보 </motion.div>
-        <div className="border-t border-gray-300"></div>
-        <div className="bg-white rounded-lg p-3 shadow-sm min-h-[100px]">
-          {loadingWF && <p className="text-gray-400">Loading...</p>}
-          {!loadingWF && wildfires.length === 0 && (
-            <p className="text-gray-400">현재 표시할 데이터가 없습니다.</p>
-          )}
-          {!loadingWF && wildfires.length > 0 && (
-            <ul className="space-y-2">
-              {wildfires.map((item) => (
-                <li key={item.SN} className="text-gray-700 text-sm border-b pb-1">
-                  📍 {item.PLC_NM}  
-                  <br />
-                  ⏱ {item.MSTN_DT}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </motion.section>
-
+      {/* 산악 가이드 */}
       <motion.div variants={fadeIn} className="flex flex-col">
         <h5 className="text-xl font-bold mb-2 border-b-2 border-gray-400">산악 가이드 정보</h5>
         <div className="flex space-x-4 overflow-x-auto py-2">
@@ -95,6 +73,64 @@ export default function Home() {
           ))}
         </div>
       </motion.div>
+      <motion.div variants={fadeIn} className="flex items-center space-x-2 py-1 border-b-2 border-gray-400">
+        <Megaphone className="w-6 h-6" aria-hidden="true" />
+        <h2 className="text-xl font-bold">실시간 재난정보</h2>
+      </motion.div>
+
+      <motion.section variants={fadeIn} className="flex flex-col space-y-3 bg-gray-200 p-3 rounded-lg">
+        {/* 산사태 정보 */}
+        <motion.div className="text-xl font-bold text-gray-600"> 산사태 정보 </motion.div>
+        <div className="border-t border-gray-300"></div>
+        <div className="bg-white rounded-lg p-3 shadow-sm min-h-[100px]">
+          {loading && <p className="text-gray-400">Loading...</p>}
+          {!loading && landslides.length === 0 && (
+            <p className="text-gray-400">현재 산사태 정보가 없습니다.</p>
+          )}
+          {!loading && landslides.length > 0 && (
+            <ul className="space-y-2">
+              {landslides.map((item) => (
+                <li key={item.SN} className="text-gray-700 text-sm border-b pb-1">
+                  ⚠️ {item.SGG_NM} 산사태 발생
+                  <br />
+                  ⏱ {item.PREDC_ANLS_DT}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {/* 산불 정보 */}
+        <motion.div className="text-xl font-bold text-gray-600 mt-4"> 산불 정보 </motion.div>
+        <div className="border-t border-gray-300"></div>
+        <div className="bg-white rounded-lg p-3 shadow-sm min-h-[100px]">
+          {loading && <p className="text-gray-400">Loading...</p>}
+          {!loading && wildfires.length === 0 && (
+            <p className="text-gray-400">현재 산불 정보가 없습니다.</p>
+          )}
+          {!loading && wildfires.length > 0 && (
+            <ul className="space-y-2">
+              {wildfires.map((item) => (
+                <li key={item.SN} className="text-gray-700 text-sm border-b pb-1">
+                  🚨 {item.PLC_NM} 산불 발생
+                  <br />
+                  ⏱ {item.MSTN_DT}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </motion.section>
+
+        {/*유의사항 섹션 */}
+        <motion.footer variants={fadeIn} className="mt-6 bg-gray-100 border-l-4 border-gray-500 p-4 rounded-lg text-sm text-gray-700">
+        <h4 className="font-bold text-gray-700 mb-1">☑️ 유의사항</h4>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>등산 전 반드시 기상청, 산림청 등 정보를 확인하세요.</li>
+          <li>비상 상황 발생 시 즉시 119에 신고하세요.</li>
+          <li>모든 산행은 본인의 책임하에 이루어집니다.</li>
+        </ul>
+      </motion.footer>
     </motion.section>
   );
 }
