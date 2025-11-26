@@ -142,20 +142,20 @@
          {tab === "weather" && <MountainWeather mountain={mountain} />}
 
          {tab === "notice" && (
-  mountain.notices &&
-  mountain.notices.length > 0 && (
-    <motion.footer
-      className="mt-6 bg-gray-100 border-l-4 border-gray-500 p-4 rounded-lg text-sm text-gray-700 mx-4"
-    >
-      <h4 className="font-bold text-gray-700 mb-2">☑️ 유의사항</h4>
-      <ul className="list-disc pl-5 space-y-1">
-        {mountain.notices.map((notice, index) => (
-          <li key={index}>{notice}</li>
-        ))}
-      </ul>
-    </motion.footer>
-  )
-)}
+          mountain.notices &&
+          mountain.notices.length > 0 && (
+            <motion.footer
+              className="mt-6 bg-gray-100 border-l-4 border-gray-500 p-4 rounded-lg text-sm text-gray-700 mx-4"
+            >
+              <h4 className="font-bold text-gray-700 mb-2">☑️ 유의사항</h4>
+              <ul className="list-disc pl-5 space-y-1">
+                {mountain.notices.map((notice, index) => (
+                  <li key={index}>{notice}</li>
+                ))}
+              </ul>
+              </motion.footer>
+            )
+          )}
         </motion.div>
       </motion.section>
     );

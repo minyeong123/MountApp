@@ -10,6 +10,7 @@
   import FindAccountPage from "./pages/FindAccountPage";
   import JoinPage from "./pages/Joinpage";
   import NewPost from "./pages/NewPost";
+  import NewReview from "./pages/NewReview";
 
   function App() {
     return (
@@ -25,6 +26,7 @@
           <Route path="/community/new-post" element={<NewPost />} /> 
           <Route path="/community/post/:id" element={<DetailPage dataType="post" />} />
           <Route path="/community/review/:id" element={<DetailPage dataType="review" />} />
+          <Route path="/community/new-review" element={<NewReview />} />
           <Route path="/mypage" element={<MyPage />} />
         </Route>
       </Routes>

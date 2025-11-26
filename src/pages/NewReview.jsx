@@ -20,7 +20,7 @@ export default function NewPost() {
 
   const handleImageChange = (e) => {
     const files = e.target.files;
-    if (files && files.length > 0) {
+    if (files && files.length > 0) {  
       const newImages = Array.from(files);
       setImages((prevImages) => [...prevImages, ...newImages]);
     }
@@ -39,7 +39,7 @@ export default function NewPost() {
     <motion.div className="flex flex-col h-screen p-4 bg-gray-50">
       <div className="relative flex items-center justify-center border rounded-lg p-3 bg-white mb-4 min-h-[50px]">
         <BackButton />
-        <h2 className="font-bold text-lg">게시글 작성</h2>
+        <h2 className="font-bold text-lg">리뷰 작성</h2>
       </div>
 
       <div className="border rounded-lg bg-white p-3 mb-4">
@@ -55,7 +55,7 @@ export default function NewPost() {
       <div className="h-[500px] border rounded-lg bg-white p-3 mb-4">
         <textarea
           className="w-full h-full resize-none outline-none"
-          placeholder="게시글 내용 작성하세요"
+          placeholder="리뷰 내용 작성하세요"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
@@ -125,8 +125,8 @@ export default function NewPost() {
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
           <div className="bg-white rounded-2xl shadow-xl w-80 p-6 text-center animate-fadeIn">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">게시글 작성 완료!</h3>
-            <p className="text-gray-600 mb-6">게시글이 성공적으로 등록되었습니다.</p>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">리뷰 작성 완료!</h3>
+            <p className="text-gray-600 mb-6">리뷰가 성공적으로 등록되었습니다.</p>
             <button
               onClick={handleModalConfirm}
               className="w-full px-4 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors"

@@ -78,12 +78,10 @@ export default function DetailPage({ dataType }) {
         </div>
       </div>
 
-      {/* 리뷰라면 별점 */}
       {dataType === "review" && (
         <div className="flex justify-end px-2 mt-2 text-xl">{item.rating}</div>
       )}
 
-      {/* ---------- 이미지 ---------- */}
       {item.image && (
         <div className="mt-4">
           <img
@@ -93,30 +91,24 @@ export default function DetailPage({ dataType }) {
         </div>
       )}
 
-      {/* ---------- 버튼 (좋아요) ---------- */}
       <div className="flex items-center space-x-5 mt-3 px-1 text-2xl">
         <button onClick={onLikeClick}>
           {liked ? "❤️" : "🤍"}
         </button>
       </div>
 
-      {/* 좋아요 수 */}
       <p className="px-1 mt-1 text-sm font-semibold">
         좋아요 {likeCount}개
       </p>
 
-      {/* ---------- 내용 ---------- */}
       <p className="px-1 mt-4 text-gray-800 leading-relaxed whitespace-pre-line">
         {item.comment}
       </p>
 
-      {/* ---------- 댓글 ---------- */}
       <div ref={commentRef} className="mt-8 px-1">
         <h3 className="text-lg font-semibold mb-4">댓글</h3>
           <div className="flex items-start bg-white shadow-md p-5 rounded-xl mb-3 hover:bg-gray-50 transition duration-200 space-x-4">
-            {/* 프로필 */}
             <div className="w-10 h-10 rounded-full bg-gray-300 flex-shrink-0"></div>
-            {/* 댓글 내용 */}
             <div className="flex-1">
               <p className="font-semibold mb-1">user</p>
               <p className="text-gray-700 leading-relaxed">
@@ -125,9 +117,7 @@ export default function DetailPage({ dataType }) {
             </div>
           </div>
           <div className="flex items-start bg-white shadow-md p-5 rounded-xl mb-3 hover:bg-gray-50 transition duration-200 space-x-4">
-            {/* 프로필 */}
             <div className="w-10 h-10 rounded-full bg-gray-300 flex-shrink-0"></div>
-            {/* 댓글 내용 */}
             <div className="flex-1">
               <p className="font-semibold mb-1">user</p>
               <p className="text-gray-700 leading-relaxed">
@@ -136,9 +126,7 @@ export default function DetailPage({ dataType }) {
             </div>
           </div>
           <div className="flex items-start bg-white shadow-md p-5 rounded-xl mb-3 hover:bg-gray-50 transition duration-200 space-x-4">
-            {/* 프로필 */}
             <div className="w-10 h-10 rounded-full bg-gray-300 flex-shrink-0"></div>
-            {/* 댓글 내용 */}
             <div className="flex-1">
               <p className="font-semibold mb-1">user</p>
               <p className="text-gray-700 leading-relaxed">
