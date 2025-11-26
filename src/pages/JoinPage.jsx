@@ -8,6 +8,23 @@ export default function JoinPage() {
         <form className="space-y-4">
 
           <div className="flex flex-col">
+            <label className="mb-1 font-medium text-gray-700">활동명</label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="활동명 입력"
+                className="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+              <button
+                type="button"
+                className="bg-blue-500 text-white px-3 whitespace-nowrap rounded-lg hover:bg-blue-600 transition font-semibold"
+              >
+                중복
+              </button>
+            </div>  
+          </div>
+
+          <div className="flex flex-col">
             <label className="mb-1 font-medium text-gray-700">아이디</label>
             <div className="flex gap-2">
               <input
@@ -21,7 +38,7 @@ export default function JoinPage() {
               >
                 중복
               </button>
-            </div>
+            </div>  
           </div>
 
           <div className="flex flex-col">

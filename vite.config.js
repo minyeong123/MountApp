@@ -7,12 +7,13 @@ export default defineConfig({
     outDir: "dist",
   },
   server: {
+    host: true,
     proxy: {
       "/api": {
         target: "https://www.safetydata.go.kr",
         changeOrigin: true,
         secure: true,
-        rewrite: (path) => path.replace(/^\/api/, ""), 
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
